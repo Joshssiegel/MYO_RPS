@@ -43,7 +43,11 @@ void loop()
     case waveOut:
       throwRock();
       break;
+     default:
+      setNeutral();
+      break;
    } 
+   delay(10);
     //demo();
 }
 
@@ -59,20 +63,20 @@ void throwPaper()
 {
   paper.write(UP_POS);
   delay(KEEP_UP_TIME);
-  setNeutral();
+  //setNeutral();
   
 }
 void throwScissors()
 {
   scissors.write(UP_POS);
   delay(KEEP_UP_TIME);
-  setNeutral();  
+  //setNeutral();  
 }
 void throwRock()
 {
   rock.write(UP_POS);
   delay(KEEP_UP_TIME);
-  setNeutral();
+  //setNeutral();
 
 }
 
