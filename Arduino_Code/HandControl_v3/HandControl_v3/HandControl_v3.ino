@@ -2,7 +2,7 @@
 #include <Servo.h>
 #define FIST_PIN 10 //we throw paper hand
 #define FINGERSSPREAD_PIN 11 //we throw scissors
-#define DOUBLETAP_PIN 9 //we throw rock
+#define WAVEOUT_PIN 9 //we throw rock
 Servo rock;
 
 Servo paper;
