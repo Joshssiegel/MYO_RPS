@@ -18,9 +18,9 @@ void setup() {
   //pinMode(WAVEIN_PIN, OUTPUT);
   //pinMode(WAVEOUT_PIN, OUTPUT);
   //pinMode(FINGERSSPREAD_PIN, OUTPUT);
-  //pinMode(DOUBLETAP_PIN, OUTPUT);
+  //pinMode(WAVEOUT_PIN, OUTPUT);
   paper.attach(FIST_PIN);  // attaches the servo on pin 9 to the servo object
-  rock.attach(DOUBLETAP_PIN);  // attaches the servo on pin 9 to the servo object
+  rock.attach(WAVEOUT_PIN);  // attaches the servo on pin 9 to the servo object
   scissors.attach(FINGERSSPREAD_PIN);  // attaches the servo on pin 9 to the servo object
 
   
@@ -40,7 +40,7 @@ void loop()
     case fingersSpread:
       throwScissors();
       break;
-    case doubleTap:
+    case waveOut:
       throwRock();
       break;
    } 
