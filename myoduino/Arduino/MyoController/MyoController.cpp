@@ -44,11 +44,11 @@ bool MyoController::updatePose(){
 	}
 	else if (msgChar.indexOf("waveIn")>=0)
 	{
-		current_pose_=waveIn;
+		current_pose_=rest;
 	} 
 	else if (msgChar.indexOf("waveOut")>=0)
 	{
-		current_pose_=waveOut;
+		current_pose_=doubleTap;
 	} 
 	else if (msgChar.indexOf("fingersSpread")>=0)
 	{
@@ -56,7 +56,7 @@ bool MyoController::updatePose(){
 	} 
 	else if (msgChar.indexOf("doubleTap")>=0)
 	{
-		current_pose_=doubleTap;
+		current_pose_=waveOut;
 	} 
 	else
 	{
