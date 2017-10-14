@@ -10,4 +10,4 @@ After recieving input from the Myo, the arduino will lower the appropriate posit
 
 ## Future Plans and Implications
 This project is a step forward in human motion detection, and interfacing with computers in a different way. This is a base-case for the future, where human actions can be read accurately and processed appropriately.
-Major implications of this are in the healthcare industry, where reading arm motions from disabled people to accurately read hand motions can improve prosthetic maneuverability. 
+Major implications of this are in healthcare, where accurately reading arm motions from disabled patients can improve prosthetic maneuverability and range of motion.
