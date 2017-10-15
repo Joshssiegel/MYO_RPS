@@ -1,4 +1,6 @@
 #include "MyoController.h"
+#include "get_data.cpp"
+
 /**
 * @brief Constructor - Instantiates MyoController object
 */
@@ -34,33 +36,35 @@ bool MyoController::updatePose() {
 
 	}
 
-	if (msgChar.indexOf("rest") >= 0)
-	{
-		current_pose_ = rest;
-	}
-	else if (msgChar.indexOf("fist") >= 0)
-	{
-		current_pose_ = fist;
-	}
-	else if (msgChar.indexOf("waveIn") >= 0)
-	{
-		current_pose_ = rest;
-	}
-	else if (msgChar.indexOf("waveOut") >= 0)
-	{
-		current_pose_ = waveOut;
-	}
-	else if (msgChar.indexOf("fingersSpread") >= 0)
-	{
-		current_pose_ = fingersSpread;
-	}
-	else if (msgChar.indexOf("doubleTap") >= 0)
-	{
-		current_pose_ = doubleTap;
-	}
-	else
-	{
-		current_pose_ = unknown;
+	if (!get_data::isMoving) {
+		if (msgChar.indexOf("rest") >= 0)
+		{
+			current_pose_ = rest;
+		}
+		else if (msgChar.indexOf("fist") >= 0)
+		{
+			current_pose_ = fist;
+		}
+		else if (msgChar.indexOf("waveIn") >= 0)
+		{
+			current_pose_ = rest;
+		}
+		else if (msgChar.indexOf("waveOut") >= 0)
+		{
+			current_pose_ = waveOut;
+		}
+		else if (msgChar.indexOf("fingersSpread") >= 0)
+		{
+			current_pose_ = fingersSpread;
+		}
+		else if (msgChar.indexOf("doubleTap") >= 0)
+		{
+			current_pose_ = doubleTap;
+		}
+		else
+		{
+			current_pose_ = unknown;
+		}
 	}
 }
 Poses MyoController::getCurrentPose() {
