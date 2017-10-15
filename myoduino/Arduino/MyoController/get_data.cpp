@@ -93,6 +93,7 @@ int main(int argc, char** argv)
 
     // If waitForMyo() returned a null pointer, we failed to find a Myo, so exit with an error message.
     if (!myo) {
+        MyoController.getCurrentPose = rest; 
         throw std::runtime_error("Unable to find a Myo!");
     }
 
