@@ -1,29 +1,29 @@
 #include "MyoController.h"
 /**
- * @brief Constructor - Instantiates MyoController object
- */
+* @brief Constructor - Instantiates MyoController object
+*/
 MyoController::MyoController()
 {
-	msgChar=String("");
+	msgChar = String("");
 }
 
 /**
- * @brief Destructor
- */
+* @brief Destructor
+*/
 MyoController::~MyoController()
 {
 
 }
-bool MyoController::initMyo(){
+bool MyoController::initMyo() {
 	Serial.begin(9600);
-	return true;	
+	return true;
 }
 
-bool MyoController::updatePose(){
+bool MyoController::updatePose() {
 	if (Serial.available())
 	{
 		storageStr = String("");
-		while(Serial.available())
+		while (Serial.available())
 		{
 			storageStr = storageStr + char(Serial.read());
 			delay(1);
@@ -34,35 +34,35 @@ bool MyoController::updatePose(){
 
 	}
 
-	if(msgChar.indexOf("rest")>=0)
+	if (msgChar.indexOf("rest") >= 0)
 	{
-		current_pose_=rest;
+		current_pose_ = rest;
 	}
-	else if (msgChar.indexOf("fist")>=0)
+	else if (msgChar.indexOf("fist") >= 0)
 	{
-		current_pose_=fist;
+		current_pose_ = fist;
 	}
-	else if (msgChar.indexOf("waveIn")>=0)
+	else if (msgChar.indexOf("waveIn") >= 0)
 	{
-		current_pose_=rest;
-	} 
-	else if (msgChar.indexOf("waveOut")>=0)
+		current_pose_ = rest;
+	}
+	else if (msgChar.indexOf("waveOut") >= 0)
 	{
-		current_pose_=doubleTap;
-	} 
-	else if (msgChar.indexOf("fingersSpread")>=0)
+		current_pose_ = waveOut;
+	}
+	else if (msgChar.indexOf("fingersSpread") >= 0)
 	{
-		current_pose_=fingersSpread;
-	} 
-	else if (msgChar.indexOf("doubleTap")>=0)
+		current_pose_ = fingersSpread;
+	}
+	else if (msgChar.indexOf("doubleTap") >= 0)
 	{
-		current_pose_=waveOut;
-	} 
+		current_pose_ = doubleTap;
+	}
 	else
 	{
-		current_pose_=unknown;
+		current_pose_ = unknown;
 	}
 }
-Poses MyoController::getCurrentPose(){
+Poses MyoController::getCurrentPose() {
 	return current_pose_;
 }
