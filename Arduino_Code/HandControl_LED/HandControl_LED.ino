@@ -3,28 +3,32 @@
 #define FIST_PIN 10 //we throw paper hand
 #define FINGERSSPREAD_PIN 11 //we throw scissors
 #define DOUBLETAP_PIN 9 //we throw rock
-Servo rock;
+int rock=9;
 
-Servo paper;
+int paper=10;
 
-Servo scissors;
+int scissors=11;
 MyoController myo = MyoController();
 const int KEEP_UP_TIME=3000;
 const int DOWN_POS=30;
 const int UP_POS=120;
 void setup() {
-  paper.attach(FIST_PIN);  
-  rock.attach(DOUBLETAP_PIN); 
-  scissors.attach(FINGERSSPREAD_PIN); 
+  paper=(FIST_PIN);  
+  rock=(DOUBLETAP_PIN); 
+  scissors=(FINGERSSPREAD_PIN); 
+  pinMode(rock, OUTPUT);
+  pinMode(paper, OUTPUT);
+  pinMode(scissors, OUTPUT);
+
   //myo.initMyo();
 }
 
 void loop()
 {
-   /*myo.updatePose();
+   myo.updatePose();
    switch (myo.getCurrentPose()) {
     case rest:
-      setNeutral();
+      //setNeutral();
       break;
     case fist:
       throwPaper();
@@ -36,9 +40,10 @@ void loop()
       throwRock();
       break;
     default:
-      setNeutral();
+      //setNeutral();
+      throwPaper();
       break;
-   }*/
+   }
    delay(10);
    demo();
    
@@ -46,40 +51,48 @@ void loop()
 
 void setNeutral()
 {
-  rock.write(DOWN_POS);
+  /*rock.write(DOWN_POS);
   paper.write(DOWN_POS);
-  scissors.write(DOWN_POS);
-  delay(1000);
+  scissors.write(DOWN_POS);*/
+  digitalWrite(scissors, LOW);
+  digitalWrite(paper, LOW);
+  digitalWrite(rock, LOW);
+  //delay(1000);
 }
 
 void throwPaper()
 {
-  paper.write(UP_POS);
+  setNeutral();
+  digitalWrite(paper, HIGH);
+  
   delay(KEEP_UP_TIME);
+  digitalWrite(paper, LOW);
   //setNeutral();
   
 }
 void throwScissors()
 {
-  scissors.write(UP_POS);
+    setNeutral();
+  digitalWrite(scissors, HIGH);
   delay(KEEP_UP_TIME);
+  digitalWrite(scissors, LOW);
+
   //setNeutral();  
 }
 void throwRock()
 {
-  rock.write(UP_POS);
+    setNeutral();
+
+  digitalWrite(rock, HIGH);
   delay(KEEP_UP_TIME);
+  digitalWrite(rock, LOW);
   //setNeutral();
 
 }
 void demo()
 {
-throwRock();
+throwPaper();
 delay(1000);
 setNeutral();
 delay(1000);
 }
-
-
-
-

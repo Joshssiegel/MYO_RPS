@@ -47,9 +47,10 @@ public:
         return norm;
     }
     void onAccelerometerData(myo::Myo *myo, uint64_t timestamp, const myo::Vector3< float > &accel) {
-        if (vectorNorm(accel) > 1000) {
+        if (vectorNorm(accel) > 5000) {
           isMoving = true;
         }
+	isMoving = false;
 
     }
     // We define this function to print the current values that were updated by the on...() functions above.
