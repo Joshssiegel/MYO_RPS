@@ -42,6 +42,7 @@ public:
     long double vectorNorm(const myo::Vector3< float> &accel) {
         long double norm  = 0;
         for (auto x: accel) {
+          std::cout << "norm" << '\n';
           norm += x*x;
         }
         return norm;
@@ -94,7 +95,7 @@ int main(int argc, char** argv)
 
     // If waitForMyo() returned a null pointer, we failed to find a Myo, so exit with an error message.
     if (!myo) {
-        MyoController.getCurrentPose = rest; 
+        MyoController.getCurrentPose = rest;
         throw std::runtime_error("Unable to find a Myo!");
     }
 
