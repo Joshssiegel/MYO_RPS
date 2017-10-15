@@ -36,7 +36,7 @@ bool MyoController::updatePose() {
 
 	}
 
-	if (!get_data::isMoving) {
+	//if (!get_data::isMoving) {
 		if (msgChar.indexOf("rest") >= 0)
 		{
 			current_pose_ = rest;
@@ -65,7 +65,7 @@ bool MyoController::updatePose() {
 		{
 			current_pose_ = unknown;
 		}
-	}
+	//}
 }
 Poses MyoController::getCurrentPose() {
 	return current_pose_;

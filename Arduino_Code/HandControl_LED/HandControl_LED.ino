@@ -20,7 +20,7 @@ void setup() {
   pinMode(paper, OUTPUT);
   pinMode(scissors, OUTPUT);
 
-  //myo.initMyo();
+  myo.initMyo();
 }
 
 void loop()
@@ -28,7 +28,7 @@ void loop()
    myo.updatePose();
    switch (myo.getCurrentPose()) {
     case rest:
-      //setNeutral();
+      setNeutral();
       break;
     case fist:
       throwPaper();
@@ -40,12 +40,12 @@ void loop()
       throwRock();
       break;
     default:
-      //setNeutral();
-      throwPaper();
+      setNeutral();
+      //throwPaper();
       break;
    }
    delay(10);
-   demo();
+   //demo();
    
 }
 
@@ -72,7 +72,7 @@ void throwPaper()
 }
 void throwScissors()
 {
-    setNeutral();
+  setNeutral();
   digitalWrite(scissors, HIGH);
   delay(KEEP_UP_TIME);
   digitalWrite(scissors, LOW);
@@ -81,7 +81,7 @@ void throwScissors()
 }
 void throwRock()
 {
-    setNeutral();
+  setNeutral();
 
   digitalWrite(rock, HIGH);
   delay(KEEP_UP_TIME);
