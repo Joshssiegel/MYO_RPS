@@ -16,12 +16,12 @@ void setup() {
   paper.attach(FIST_PIN);  
   rock.attach(DOUBLETAP_PIN); 
   scissors.attach(FINGERSSPREAD_PIN); 
-  //myo.initMyo();
+   myo.initMyo();
 }
 
 void loop()
 {
-   /*myo.updatePose();
+   myo.updatePose();
    switch (myo.getCurrentPose()) {
     case rest:
       setNeutral();
@@ -38,9 +38,9 @@ void loop()
     default:
       setNeutral();
       break;
-   }*/
+   }
    delay(10);
-   demo();
+   //demo();
    
 }
 
